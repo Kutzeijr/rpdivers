@@ -162,3 +162,20 @@ button:hover {
 audio {
     display: none;
 }
+/* Style pour le contrôle de volume */
+.volume-control {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: #f4e1d2;
+}
+
+input[type="range"] {
+    margin-left: 10px;
+    width: 150px;
+}
