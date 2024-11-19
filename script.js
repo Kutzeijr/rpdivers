@@ -2,11 +2,15 @@
 const audio = document.getElementById('ambient-sound');
 const volumeControl = document.getElementById('volume');
 
-// Commencer l'audio avec un volume par défaut de 50%
-audio.volume = volumeControl.value; // Valeur initiale de 50% de volume
-audio.play(); // Démarrer le son
+// Ajouter un écouteur d'événements pour démarrer l'audio à un clic
+document.getElementById('submit-button').addEventListener('click', () => {
+    audio.play();  // Commence à jouer le son
+});
 
-// Ajouter un écouteur d'événements pour changer le volume
+// Démarrer avec un volume initial de 50%
+audio.volume = volumeControl.value;
+
+// Ajuster le volume en fonction de la barre de contrôle
 volumeControl.addEventListener('input', function() {
-    audio.volume = volumeControl.value; // Met à jour le volume selon la position du curseur
+    audio.volume = volumeControl.value;
 });
