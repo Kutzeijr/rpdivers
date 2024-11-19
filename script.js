@@ -1,16 +1,23 @@
-// Récupérer l'élément audio et le contrôle de volume
-const audio = document.getElementById('ambient-sound');
-const volumeControl = document.getElementById('volume');
-
-// Ajouter un écouteur d'événements pour démarrer l'audio à un clic
-document.getElementById('submit-button').addEventListener('click', () => {
-    audio.play();  // Commence à jouer le son
+document.getElementById('submit-button').addEventListener('click', function() {
+    // Masquer la première page
+    document.getElementById('page-1').classList.add('hidden');
+    
+    // Afficher la deuxième page
+    const page2 = document.getElementById('page-2');
+    page2.style.display = 'block';
+    
+    // Lancer l'audio de fond
+    const audio = document.getElementById('ambient-sound');
+    audio.play();
+    
+    // Déclencher l'animation du discours défilant
+    setTimeout(function() {
+        page2.classList.remove('hidden');
+    }, 1000);
 });
 
-// Démarrer avec un volume initial de 50%
-audio.volume = volumeControl.value;
-
-// Ajuster le volume en fonction de la barre de contrôle
-volumeControl.addEventListener('input', function() {
-    audio.volume = volumeControl.value;
+// Contrôle du volume de l'audio
+document.getElementById('volume').addEventListener('input', function(e) {
+    const audio = document.getElementById('ambient-sound');
+    audio.volume = e.target.value;
 });
